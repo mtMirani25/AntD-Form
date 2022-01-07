@@ -1,0 +1,22 @@
+@import "~antd/dist/antd.css";
+
+.heading {
+  font-size: 2rem;
+  letter-spacing: 1px;
+  text-align: center;
+  padding: 1rem 0;
+  user-select: none;
+  color: #6495ed;
+}
+
+.login-form {
+  padding: 10px 0;
+}
+
+.inp-field {
+  width: 90%;
+  display: block;
+  padding: 5px 0 2px 10px;
+  line-height: 1.7;
+  margin: 5px 0;
+}

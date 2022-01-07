@@ -1,14 +1,16 @@
 import React from "react";
+import SignUp from "./components/Form/SignUp";
+
 import "./App.css";
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <h1>Hello World!</h1>
-      </header>
-    </div>
+    <>
+      <section id="form">
+        <SignUp />
+      </section>
+    </>
   );
-}
+};
 
 export default App;
