@@ -1,4 +1,10 @@
-@import "~antd/dist/antd.css";
+#form {
+  width: 30rem;
+  max-width: 90%;
+  height: auto;
+  margin: 0 auto;
+  padding-top: 2rem;
+}
 
 .heading {
   font-size: 2rem;
@@ -19,4 +25,10 @@
   padding: 5px 0 2px 10px;
   line-height: 1.7;
   margin: 5px 0;
+}
+
+#table {
+  width: 50rem;
+  max-width: 90%;
+  margin: 3rem auto;
 }

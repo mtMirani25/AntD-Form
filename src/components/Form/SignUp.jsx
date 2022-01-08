@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import Card from "../UI/Card";
+import FormTable from "../Table/FormTable";
 import { Form, Input, Button } from "antd";
 
 import "./SignUp.css";
 
-const SignUp = () => {
+const SignUp = (props) => {
   const [enteredName, setEnteredName] = useState("");
   const [enteredEmail, setEnteredEmail] = useState("");
   const [enteredPassword, setEnteredPassword] = useState("");
@@ -23,7 +24,7 @@ const SignUp = () => {
 
   const submitHandler = (event) => {
     event.preventDefault();
-
+    props.onAddUser({ enteredName, enteredEmail, enteredPassword });
     setEnteredName("");
     setEnteredEmail("");
     setEnteredPassword("");
@@ -32,51 +33,62 @@ const SignUp = () => {
   };
   return (
     <>
-      <Card>
-        <h1 className="heading">Login Form</h1>
-        <Form
-          className="login-form"
-          labelCol={{
-            span: 5,
-          }}
-          wrapperCol={{
-            span: 16,
-          }}
-        >
-          <Form.Item label="Username">
-            <Input
-              placeholder="Username"
-              value={enteredName}
-              onChange={nameChangeHandler}
-            />
-          </Form.Item>
-          <Form.Item label="Email">
-            <Input
-              placeholder="email"
-              required
-              value={enteredEmail}
-              onChange={emailChangeHandler}
-              autoComplete="off"
-            />
-          </Form.Item>
-          <Form.Item label="Password">
-            <Input.Password
-              placeholder="password"
-              value={enteredPassword}
-              onChange={pswChangeHandler}
-            />
-          </Form.Item>
-          <Form.Item
+      <div id="form">
+        <Card>
+          <h1 className="heading">Login Form</h1>
+          <Form
+            className="login-form"
+            labelCol={{
+              span: 5,
+            }}
             wrapperCol={{
-              offset: 5,
+              span: 16,
             }}
           >
-            <Button type="primary" htmlType="submit" onClick={submitHandler}>
-              Log In
-            </Button>
-          </Form.Item>
-        </Form>
-      </Card>
+            <Form.Item label="Username">
+              <Input
+                placeholder="Username"
+                value={enteredName}
+                onChange={nameChangeHandler}
+              />
+            </Form.Item>
+            <Form.Item label="Email">
+              <Input
+                placeholder="email"
+                required
+                value={enteredEmail}
+                onChange={emailChangeHandler}
+                autoComplete="off"
+              />
+            </Form.Item>
+            <Form.Item label="Password">
+              <Input.Password
+                placeholder="password"
+                value={enteredPassword}
+                onChange={pswChangeHandler}
+              />
+            </Form.Item>
+            <Form.Item
+              wrapperCol={{
+                offset: 5,
+              }}
+            >
+              <Button
+                type="primary"
+                htmlType="submit"
+                onClick={submitHandler}
+                disabled={!enteredName || !enteredEmail || !enteredPassword}
+              >
+                Log In
+              </Button>
+            </Form.Item>
+          </Form>
+        </Card>
+      </div>
+
+      <section id="table">
+        <FormTable dataSource={props.dataSource} />
+      </section>
     </>
   );
 };
