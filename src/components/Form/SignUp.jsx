@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import Card from "../UI/Card";
-import FormTable from "../Table/FormTable";
 import { Form, Input, Button } from "antd";
 
 import "./SignUp.css";
@@ -31,6 +30,7 @@ const SignUp = (props) => {
 
     console.log(enteredName, enteredEmail, enteredPassword);
   };
+
   return (
     <>
       <div id="form">
@@ -85,10 +85,6 @@ const SignUp = (props) => {
           </Form>
         </Card>
       </div>
-
-      <section id="table">
-        <FormTable dataSource={props.dataSource} />
-      </section>
     </>
   );
 };

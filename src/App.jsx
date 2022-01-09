@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import SignUp from "./components/Form/SignUp";
+import FormTable from "./components/Table/FormTable";
 
 const App = () => {
   const [dataSource, setDataSource] = useState([
@@ -22,14 +23,23 @@ const App = () => {
         email: "john@gmail.com",
         password: "12abcd21",
       };
-      const updatedUser = [...prevUser, newUser];
-      return updatedUser;
+      return [...prevUser, newUser];
+    });
+  };
+
+  // function for Delete previous user
+  const deleteUserHandler = (record) => {
+    setDataSource((prev) => {
+      return prev.filter((user) => user.id !== record.id);
     });
   };
 
   return (
     <>
-      <SignUp onAddUser={addUserHandler} dataSource={dataSource} />
+      <SignUp onAddUser={addUserHandler} />
+      <section id="table">
+        <FormTable dataSource={dataSource} onDelete={deleteUserHandler} />
+      </section>
     </>
   );
 };
