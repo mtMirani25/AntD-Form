@@ -23,7 +23,7 @@ const SignUp = (props) => {
 
   const submitHandler = (event) => {
     event.preventDefault();
-    props.onAddUser({ enteredName, enteredEmail, enteredPassword });
+    props.onAddUser([{ enteredName, enteredEmail, enteredPassword }]);
     setEnteredName("");
     setEnteredEmail("");
     setEnteredPassword("");

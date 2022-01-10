@@ -31,6 +31,9 @@ const FormTable = (props) => {
         return (
           <>
             <EditOutlined
+              onClick={() => {
+                props.onEdit(record);
+              }}
               style={{
                 color: "aqua",
                 marginLeft: "10px",
