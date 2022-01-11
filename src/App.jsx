@@ -18,16 +18,18 @@ const App = () => {
   ]);
 
   // function for add new user
-  const addUserHandler = () => {
-    setDataSource((prevUser) => {
-      const newUser = {
-        id: parseInt(Math.random() * 10),
-        key: parseInt(Math.random() * 10),
-        username: "John Smith",
-        email: "john@gmail.com",
-        password: "12abcd21",
-      };
-      return [...prevUser, newUser];
+  const addUserHandler = (userName, userEmail, userPsw) => {
+    setDataSource((prevEntry) => {
+      return [
+        ...prevEntry,
+        {
+          username: userName,
+          email: userEmail,
+          password: userPsw,
+          id: Math.floor(Math.random().toString() * 100),
+          key: Math.floor(Math.random().toString() * 100),
+        },
+      ];
     });
   };
 
